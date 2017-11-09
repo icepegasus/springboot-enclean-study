@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.skcc.springboot.user.dao.UserMapper">
+
+    <select id="selectAll" parameterType="string" resultType="User">
+        <![CDATA[
+        select id,name,phonenumber,email,password from users
+        ]]>
+    </select>
+    
+    <select id="selectById"  parameterType="String" resultType="User" >
+        <![CDATA[
+        select * from users where id = #{id}
+        ]]>
+    </select>
+    
+    <insert id="insert"  parameterType="User" >
+        <![CDATA[
+       insert into users(id, name, phonenumber,email,password) values(#{id}, #{name}, #{phoneNumber}, #{email}, #{password})
+        ]]>
+    </insert>
+    
+    <update id="update"  parameterType="User"  >
+        <![CDATA[
+      	update users set name = #{name}, phonenumber = #{phoneNumber}, email = #{email}, password = #{password} where id = #{id}
+        ]]>
+    </update>
+    
+    <delete id="delete" parameterType="String" >
+        <![CDATA[
+      	delete from users where id = #{id}
+        ]]>
+    </delete>
+
+</mapper>

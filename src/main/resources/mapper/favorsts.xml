@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.skcc.springboot.favorSts.dao.FavorStsMapper">
+
+    <select id="selectAllFavor" parameterType="string" resultType="FavorSts">
+        <![CDATA[
+        select id,sid,sname,sowner,phonenumber,address,'1' as ischecked from myCheck
+        ]]>
+    </select>
+    
+    <select id="selectFavorById"  parameterType="String" resultType="FavorSts" >
+        <![CDATA[
+        select id,sid,sname,sowner,phonenumber,address,'1' as ischecked from myCheck where id = #{id}
+        ]]>
+    </select>  
+    
+    <insert id="insertFavor"  parameterType="FavorSts" >
+        <![CDATA[
+        insert into myCheck(id,sid,sname,sowner,phonenumber,address) values(#{id}, #{sid}, #{sname}, #{sowner}, #{phonenumber}, #{address} )
+        ]]>
+    </insert>
+    
+    <delete id="deleteFavor" parameterType="FavorSts" >
+        <![CDATA[
+      	delete from myCheck where id = #{id} and sid = #{sid}
+        ]]>
+    </delete>        
+
+</mapper>

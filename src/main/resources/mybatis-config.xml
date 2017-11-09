@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <typeAliases>
+        <package name="com.skcc.springboot.user.domain"/>
+        <package name="com.skcc.springboot.favorSts.domain"/>
+    </typeAliases>
+    <mappers>
+        <mapper resource="mapper/user.xml"/>
+        <mapper resource="mapper/favorsts.xml"/>
+        <mapper resource="mapper/stations.xml"/>
+        <mapper resource="mapper/fuelrecord.xml"/>
+    </mappers>
+</configuration>
